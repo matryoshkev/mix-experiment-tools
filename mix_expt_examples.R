@@ -27,18 +27,17 @@ source("mixexptr.R")
 
 # Load data (ancestral and evolved Myxococcus)
 data_smith2010 <-
-	read.table("data_smith_2010.tsv", header = TRUE, sep = "\t") |>
-	tibble() |>
-	rename(
-		initial_cells_evolved = "initial_cells_A",
-		initial_cells_ancestral = "initial_cells_B",
-		final_spores_evolved = "final_spores_A",
-		final_spores_ancestral = "final_spores_B"
+	read.csv("data_smith2010.csv", header = TRUE, comment.char = "#") |>
+	tibble()
+	# Data are raw colony counts and dilutions
+
+# Calculate cell count for each strain
+data_smith2010 <- data_smith2010 |>
+	mutate(
+		final_spores_evolved = colonies_rif_1 * dilution_rif_1,
+		final_spores_ancestral = colonies_kan_1 * dilution_kan_1,
 	) |>
 	select(exptl_block, starts_with("initial"), starts_with("final"))
-
-# Measured values are initial and final cell counts for each strain
-data_smith2010
 
 # Quick diagnostic report to visualize fitness results
 report_mix_fitness(
@@ -75,6 +74,10 @@ fitness_smith2010 |> select(
 )
 # This is what we'd analyze statistically
 
+fitness_smith2010 |> select(
+	exptl_block, initial_proportion_A, starts_with("fitness")
+)
+
 # Plot fitness effects of mixing
 dev.new(width = 6.25, height = 2.25, units = "in", noRStudioGD = TRUE)
 fig_smith2010 <- 
@@ -86,7 +89,7 @@ fig_smith2010 <-
 	)
 plot(fig_smith2010)
 ggsave(
-	"smith2010.pdf", 
+	"mix_fitness_smith2010.pdf", 
 	plot = fig_smith2010, 
 	width = 6.25, 
 	height = 2.25, 
