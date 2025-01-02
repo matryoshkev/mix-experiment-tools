@@ -1,0 +1,86 @@
+# Data from Yurtsev et al (2013) Mol Syst Biol 9:683, Figs. 1, 3
+# Data authors: Eugene A Yurtsev, Hui Xiao Chao, Manoshi S Datta, Tatiana Artemova, Jeff Gore
+# Reformatted by jeff smith 2019-06
+# 
+# resistant = Escherichia coli expressing expressing TEM-1 beta-lactamase, resistant to ampicillin
+# sensitive = Escherichia coli wild type, sensitive to ampicillin
+# antibiotic = initial concentration of ampicillin in culture media (micrograms/ml)
+# dilution = fold dilution to set initial population density (part of experimental treatment)
+# exptl.replicate = experimental replicate
+# culture.id = culture identification number within replicate
+# 
+# initial.number.total = inital cell density (OD_600)
+# initial.proportion.A = initial proportion of resistant cells, determined by flow cytometry
+# final.number.total = final cell density (OD_600)
+# final.proportion.A = final proportion of resistant cells, determined by flow cytometry
+# 
+strain_A	strain_B	antibiotic	dilution	exptl_replicate	culture_id	initial_number_total	initial_proportion_A	final_number_total	final_proportion_A
+resistant	sensitive	100	100	0	1	0.014240	0.047367	1.394884	0.979829
+resistant	sensitive	100	100	0	2	0.016626	0.083194	1.288419	0.973490
+resistant	sensitive	100	100	0	3	0.013949	0.136097	1.268975	0.971101
+resistant	sensitive	100	100	0	4	0.015744	0.190921	1.276729	0.939308
+resistant	sensitive	100	100	0	5	0.015881	0.234618	1.274788	0.902947
+resistant	sensitive	100	100	0	6	0.017327	0.265634	1.315974	0.829495
+resistant	sensitive	100	100	0	7	0.015813	0.324992	1.362118	0.503580
+resistant	sensitive	100	100	0	8	0.014324	0.361010	1.372298	0.391045
+resistant	sensitive	100	100	0	9	0.017058	0.400654	1.413564	0.394590
+resistant	sensitive	100	100	0	10	0.015744	0.449678	1.460003	0.448843
+resistant	sensitive	100	100	0	11	0.015474	0.474396	1.604150	0.468329
+resistant	sensitive	100	100	0	12	0.017229	0.542667	1.516372	0.419796
+resistant	sensitive	100	100	0	13	0.016769	0.591551	1.405239	0.465627
+resistant	sensitive	100	100	0	14	0.015654	0.617810	1.417739	0.514362
+resistant	sensitive	100	100	0	15	0.017253	0.678747	1.286465	0.542285
+resistant	sensitive	100	100	0	16	0.016088	0.714068	1.234465	0.582170
+resistant	sensitive	100	100	0	17	0.015341	0.747357	1.417739	0.623548
+resistant	sensitive	100	100	0	18	0.014967	0.801166	1.298214	0.669976
+resistant	sensitive	100	100	0	19	0.015497	0.823350	1.270911	0.728306
+resistant	sensitive	100	100	0	20	0.016865	0.873590	1.360089	0.787985
+resistant	sensitive	100	100	0	21	0.015973	0.920828	1.376385	0.834355
+resistant	sensitive	100	100	0	22	0.016745	0.951762	1.447226	0.914522
+resistant	sensitive	100	100	0	23	0.016227	0.994172	1.487981	0.986458
+resistant	sensitive	100	100	1	1	0.016343	0.069228	1.315974	0.966448
+resistant	sensitive	100	100	1	2	0.014750	0.125855	1.259327	0.956867
+resistant	sensitive	100	100	1	3	0.014240	0.198557	1.333899	0.856577
+resistant	sensitive	100	100	1	4	0.016769	0.253705	1.267042	0.627690
+resistant	sensitive	100	100	1	5	0.014303	0.322714	1.274788	0.337934
+resistant	sensitive	100	100	1	6	0.016650	0.362866	1.399020	0.315967
+resistant	sensitive	100	100	1	7	0.013928	0.390559	1.325911	0.297876
+resistant	sensitive	100	100	1	8	0.013279	0.464632	1.384585	0.332558
+resistant	sensitive	100	100	1	9	0.013480	0.499724	1.351992	0.335268
+resistant	sensitive	100	100	1	10	0.012943	0.555756	1.257403	0.426542
+resistant	sensitive	100	100	1	11	0.016065	0.606774	1.362118	0.435421
+resistant	sensitive	100	100	1	12	0.012690	0.630220	1.460003	0.502866
+resistant	sensitive	100	100	1	13	0.014579	0.691046	1.556388	0.513859
+resistant	sensitive	100	100	1	14	0.014282	0.713936	1.434533	0.582069
+resistant	sensitive	100	100	1	15	0.015541	0.767185	1.331899	0.619504
+resistant	sensitive	100	100	1	16	0.017851	0.797717	1.319943	0.661978
+resistant	sensitive	100	100	1	17	0.015385	0.822959	1.374340	0.716562
+resistant	sensitive	100	100	1	18	0.016041	0.868082	1.376385	0.751880
+resistant	sensitive	100	100	1	19	0.014643	0.876548	1.455735	0.795865
+resistant	sensitive	100	100	1	20	0.014536	0.910721	1.407317	0.839675
+resistant	sensitive	100	100	1	21	0.014815	0.933155	1.394884	0.877346
+resistant	sensitive	100	100	1	22	0.016180	0.971174	1.331899	0.935407
+resistant	sensitive	100	100	1	23	0.011490	0.994749	1.215557	0.982938
+resistant	sensitive	100	100	2	1	0.014815	0.028536	1.396951	0.984045
+resistant	sensitive	100	100	2	2	0.014345	0.061691	1.274788	0.981042
+resistant	sensitive	100	100	2	3	0.013081	0.096752	1.242081	0.979321
+resistant	sensitive	100	100	2	4	0.015385	0.126575	1.276729	0.982362
+resistant	sensitive	100	100	2	5	0.014073	0.167813	1.253561	0.972859
+resistant	sensitive	100	100	2	6	0.014793	0.204478	1.284514	0.959414
+resistant	sensitive	100	100	2	7	0.014643	0.235164	1.196833	0.942001
+resistant	sensitive	100	100	2	8	0.014282	0.286832	1.228773	0.917163
+resistant	sensitive	100	100	2	9	0.015032	0.300682	1.368219	0.820736
+resistant	sensitive	100	100	2	10	0.014240	0.347083	1.251643	0.841409
+resistant	sensitive	100	100	2	11	0.014157	0.390285	1.520777	0.702511
+resistant	sensitive	100	100	2	12	0.015654	0.436961	1.455735	0.363949
+resistant	sensitive	100	100	2	13	0.016697	0.493360	1.323920	0.404394
+resistant	sensitive	100	100	2	14	0.016484	0.533592	1.278672	0.431571
+resistant	sensitive	100	100	2	15	0.014409	0.594295	1.349973	0.440938
+resistant	sensitive	100	100	2	16	0.015699	0.637204	1.475017	0.430550
+resistant	sensitive	100	100	2	17	0.014729	0.665433	1.354013	0.470209
+resistant	sensitive	100	100	2	18	0.015722	0.713752	1.347957	0.537041
+resistant	sensitive	100	100	2	19	0.015363	0.764163	1.366184	0.586760
+resistant	sensitive	100	100	2	20	0.013908	0.832611	1.251643	0.657685
+resistant	sensitive	100	100	2	21	0.016579	0.869479	1.514173	0.746042
+resistant	sensitive	100	100	2	22	0.015474	0.939045	1.572177	0.855604
+resistant	sensitive	100	100	2	23	0.015927	0.997070	1.538500	0.990982

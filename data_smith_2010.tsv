@@ -1,0 +1,50 @@
+# Data from: smith et al (2010) Science 328:1700 doi:10.1126/science.1189675
+# Author: jeff smith
+# Date modified: 2025-01
+# 
+# Experimental treatment: 
+#   GVB206.3 = Experimentally-evolved Myxococcus xanthus strain, resistant to rifampicin
+#   GJV10 = Wild-type Myxococcus xanthus strain, resistant to kanamycin
+#   initial_cells_X = Initial number of strain X cells (colony-forming units per plate)
+#   exptl_block = Experimental replicate (start date in lab notebook)
+# 
+# Experimental observations: 
+#   colony_count_Rif = colony count on plates containing rifampicin
+#   dilution_Rif = dilution used for colony_count_Rif
+#   colony_count_Km = colony count on plates containing kanamycin
+#   dilution_Km = dilution used for colony_count_Km
+#   X_2 = second experimental measurement of X (another plate)
+# 
+# Calculated values:
+#   final_spores_X = final number of strain X spores = colony_count * dilution (colony-forming units per plate)
+#   Data are geometric mean of repeated measurements from same sample
+# 
+strain_A	strain_B	initial_cells_A	initial_cells_B	exptl_block	colony_count_Rif	dilution_Rif	colony_count_Rif_2	dilution_Rif_2	colony_count_Km	dilution_Km	colony_count_Km_2	dilution_Km_2	final_spores_A	final_spores_B
+GVB206.3	GJV10	5.00E+08	0.00E+00	2009-04-29	6	1.E+01	9	1.E+01	0	1.E+01	NA	NA	7.50E+01	0.00E+00
+GVB206.3	GJV10	4.50E+08	5.00E+06	2009-04-29	7	1.E+01	NA	NA	2	1.E+01	NA	NA	7.00E+01	2.00E+01
+GVB206.3	GJV10	4.50E+08	5.00E+07	2009-04-29	117	1.E+01	NA	NA	24	1.E+01	NA	NA	1.17E+03	2.40E+02
+GVB206.3	GJV10	2.50E+08	2.50E+08	2009-04-29	107	1.E+03	NA	NA	390	1.E+03	NA	NA	1.07E+05	3.90E+05
+GVB206.3	GJV10	5.00E+07	4.50E+08	2009-04-29	210	1.E+04	NA	NA	63	1.E+05	NA	NA	2.10E+06	6.30E+06
+GVB206.3	GJV10	5.00E+06	4.50E+08	2009-04-29	421	1.E+04	NA	NA	103	1.E+05	NA	NA	4.21E+06	1.03E+07
+GVB206.3	GJV10	0.00E+00	5.00E+08	2009-04-29	0	1.E+01	NA	NA	176	1.E+05	154	1.E+05	0.00E+00	1.65E+07
+GVB206.3	GJV10	5.00E+08	0.00E+00	2009-05-01	7	1.E+01	17	1.E+01	0	1.E+01	NA	NA	1.20E+02	0.00E+00
+GVB206.3	GJV10	4.50E+08	5.00E+06	2009-05-01	3	1.E+01	NA	NA	1	1.E+01	NA	NA	3.00E+01	1.00E+01
+GVB206.3	GJV10	4.50E+08	5.00E+07	2009-05-01	88	1.E+01	NA	NA	44	1.E+01	NA	NA	8.80E+02	4.40E+02
+GVB206.3	GJV10	2.50E+08	2.50E+08	2009-05-01	361	1.E+03	NA	NA	286	1.E+03	NA	NA	3.61E+05	2.86E+05
+GVB206.3	GJV10	5.00E+07	4.50E+08	2009-05-01	54	1.E+05	NA	NA	88	1.E+05	NA	NA	5.40E+06	8.80E+06
+GVB206.3	GJV10	5.00E+06	4.50E+08	2009-05-01	71	1.E+05	NA	NA	129	1.E+05	NA	NA	7.10E+06	1.29E+07
+GVB206.3	GJV10	0.00E+00	5.00E+08	2009-05-01	0	1.E+01	NA	NA	159	1.E+05	194	1.E+05	0.00E+00	1.77E+07
+GVB206.3	GJV10	5.00E+08	0.00E+00	2009-05-02	15	1.E+01	19	1.E+01	0	1.E+01	NA	NA	1.70E+02	0.00E+00
+GVB206.3	GJV10	4.50E+08	5.00E+06	2009-05-02	61	1.E+01	NA	NA	4	1.E+01	NA	NA	6.10E+02	4.00E+01
+GVB206.3	GJV10	4.50E+08	5.00E+07	2009-05-02	102	1.E+01	NA	NA	24	1.E+01	NA	NA	1.02E+03	2.40E+02
+GVB206.3	GJV10	2.50E+08	2.50E+08	2009-05-02	47	1.E+04	43	1.E+04	89	1.E+03	NA	NA	4.50E+05	8.90E+04
+GVB206.3	GJV10	5.00E+07	4.50E+08	2009-05-02	446	1.E+04	NA	NA	92	1.E+05	NA	NA	4.46E+06	9.20E+06
+GVB206.3	GJV10	5.00E+06	4.50E+08	2009-05-02	68	1.E+05	NA	NA	115	1.E+05	NA	NA	6.80E+06	1.15E+07
+GVB206.3	GJV10	0.00E+00	5.00E+08	2009-05-02	0	1.E+01	NA	NA	164	1.E+05	146	1.E+05	0.00E+00	1.55E+07
+GVB206.3	GJV10	5.00E+08	0.00E+00	2009-05-05	8	1.E+01	NA	NA	0	1.E+01	NA	NA	8.00E+01	0.00E+00
+GVB206.3	GJV10	4.50E+08	5.00E+06	2009-05-05	13	1.E+01	NA	NA	1	1.E+01	NA	NA	1.30E+02	1.00E+01
+GVB206.3	GJV10	4.50E+08	5.00E+07	2009-05-05	9	1.E+01	NA	NA	3	1.E+01	NA	NA	9.00E+01	3.00E+01
+GVB206.3	GJV10	2.50E+08	2.50E+08	2009-05-05	118	1.E+03	NA	NA	250	1.E+03	NA	NA	1.18E+05	2.50E+05
+GVB206.3	GJV10	5.00E+07	4.50E+08	2009-05-05	546	1.E+04	NA	NA	61	1.E+05	NA	NA	5.46E+06	6.10E+06
+GVB206.3	GJV10	5.00E+06	4.50E+08	2009-05-05	79	1.E+05	NA	NA	114	1.E+05	NA	NA	7.90E+06	1.14E+07
+GVB206.3	GJV10	0.00E+00	5.00E+08	2009-05-05	0	1.E+01	NA	NA	165	1.E+05	NA	NA	0.00E+00	1.65E+07

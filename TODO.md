@@ -42,7 +42,7 @@ Yurtsev 2013
 - Reformat: simplify, follow original more closely
 - csv
 - Re-use author language in description
-- ampicillin, culture_id, OD_initial, OD_final, fraction_gfp_initial, fraction_gfp_final, replicate, dilution
+- ampicillin, `culture_id`, `OD_initial`, `OD_final`, `fraction_gfp_initial`, `fraction_gfp_final`, replicate, dilution
 
 
 ## Other files
@@ -51,23 +51,54 @@ Yurtsev 2013
 - tsv, csv templates (with comment fields)
 
 
-## Package: mixexptr.R
+## Tools: mixexptr.R
 
-- Skeleton package
+Priority  
+- Fix deprecated `theme(legend.position)` -> legend.position.inside
+- `combine_figures(fig1, fig2, widths)`
+- `initial_number` not `initial_count` (better for density, OD600)
+- Plot dimensions should be set by `plot_mix_fitness`
+- Continued issues with `dev.new()` inside a function...
+
+Open questions  
+- Just use `scales` as much as possible?
+- Use `cowplot` instead of gtable, grid?
+- Instead of top space with `ggtitle()`, theme option?
+
+Testing  
+- Test with other input vars
+- Test with other datasets from ProcB paper
+- Test warnings of invalid data
+- Test with provided `var_names`
+- Test with default `var_names`
+
+### Features
+- Limits: Shared fitness scale
+- Breaks: Linear/log
+- Breaks: Not too many
+- Labels
+- Validate fitness data? 
+- x limits: initial ratio should include 1
+- y limits: shared scale, always include 1
+
+### Soon
+- `match.arg()`
+- Skeleton R package
 - GitHub repository
+- Minimal viable product
 
-### Later scope
-- plot fitness measures separately
-  . plot_strain_fitness()
-  . plot_multilevel_fitness()
-    . plot_total_group_fitness()
-    . plot_within_group_fitness()
-- custom color, fill
-- custom point shape
-- custom theme
-- custom limits
-- custom breaks
-- combine figures (after adding lines for fitted models, for example)
-- log-transformed values not 10^x
+### Later
+- Plot fitness measures separately
+  . `plot_strain_fitness()`
+  . `plot_multilevel_fitness()`
+    . `plot_total_group_fitness()`
+    . `plot_within_group_fitness()`
+- Custom color, fill
+- Custom point shape
+- Custom theme
+- Custom limits
+- Custom breaks
+- Combine figures (after adding lines for fitted models, for example)
+- Log-transformed values not 10^x
 
 
