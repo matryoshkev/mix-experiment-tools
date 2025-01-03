@@ -7,24 +7,29 @@ Here we offer a set of digital tools to help analyze mix experiments using the R
 - example code to modify and reuse
 - starting materials for new lab member
 
-## R code
+These materials aim for best practice in data storage and analysis to enable open, transparent, repeatable science. 
+
+## Files
 
 `mix_expt_examples.R`
-: Example analysis of data from mix experiments
+: Example analyses of data from mix experiments
 
 `mixexptr.R`
 : Library of R functions to calculate and plot fitness effects in mix experiments
 
-## Data handling
-
 `data_smith2010.csv`
-: Example dataset in archive-quality csv format. Metadata embedded as comment lines beginning with `#`. 
+: Example dataset where measured values are cell counts for each strain. Archive-quality csv format. Metadata embedded as comment lines beginning with `#`. 
 
 `data_smith2010.xslx`
 : Example dataset in spreadsheet format. Follows best practices described by [Broman \& Woo (2017)](https://doi.org/10.1080/00031305.2017.1375989). 
 
+`data_Yurtsev2013.csv`
+: Example dataset where measured values are total density and strain frequency
+
+
 ## Further reading
 
+- smith j and Inglis RF (2021) Evaluating kin and group selection as tools for quantitative analysis of microbial data. Proceedings B 288:20201657. [https://doi.org/10.1098/rspb.2020.1657](https://doi.org/10.1098/rspb.2020.1657)
 - Broman KW and Woo KH (2017) Data organization in spreadsheets. The American Statistician 72:2-10. [https://doi.org/10.1080/00031305.2017.1375989](https://doi.org/10.1080/00031305.2017.1375989)
 - [Dryad | Good data practices](https://datadryad.org/stash/best_practices)
 

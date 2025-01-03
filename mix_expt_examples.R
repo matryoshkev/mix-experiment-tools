@@ -1,37 +1,30 @@
 # File: mix_expt_examples.R
 # Title: Example analysis of microbial mix experiments
 # Authors: jeff smith, R. Fredrik Inglis
-# Date: 2025-01
 # Url: https://github.com/matryoshkev/mix-experiment-tools
+# Date last modified: 2025-01
 
+# Description: 
+#   Illustrate how one might calculate and visualize the fitness effects of 
+#   microbial interactions in mix experiments
 
-# DESCRIPTION ==================================================================
-
-# This script illustrates how one might calculate and visualize the fitness 
-# effects of microbial interactions in mix experiments. 
-
-
-# DEPENDENCIES =================================================================
-
-# Made in R v4.2.1
-
-# Install packages used by this script
-install.packages("dplyr")
-
-# Load packages
+# Dependencies: 
+# install.packages("dplyr")  # Install packages used by this script
 library(dplyr)  # General data-handling tools
-source("mixexptr.R")
+source("mixexptr.R")  # Mix experiment tools
 
 
 # DATASET 1: ABSOLUTE ABUNDANCE OF EACH STRAIN =================================
 
 # Load data (ancestral and evolved Myxococcus)
 data_smith2010 <-
-	read.csv("data_smith2010.csv", header = TRUE, comment.char = "#") |>
+	read.csv("data_smith2010.csv", comment.char = "#") |>
 	tibble()
-	# Data are raw colony counts and dilutions
 
-# Calculate cell count for each strain
+data_smith2010
+# Data are raw colony counts and dilutions
+
+# Calculate final cell number (surviving spores) from colony counts
 data_smith2010 <- data_smith2010 |>
 	mutate(
 		final_spores_evolved = colonies_rif_1 * dilution_rif_1,
@@ -55,7 +48,7 @@ report_mix_fitness(
 # - Within-group fitness is frequency-dependent with functional form 
 #   log(w_A/w_B) ~ log(n_A/n_B)
 
-# Calculate fitness effects of mixing
+# Calculate fitness effects of mixing using mixexptr::calculate_mix_fitness()
 fitness_smith2010 <- 
 	calculate_mix_fitness(
 		data = data_smith2010, 
@@ -74,66 +67,82 @@ fitness_smith2010 |> select(
 )
 # This is what we'd analyze statistically
 
-fitness_smith2010 |> select(
-	exptl_block, initial_proportion_A, starts_with("fitness")
-)
-
-# Plot fitness effects of mixing
+# Plot fitness effects of mixing (inside R)
 dev.new(width = 6.25, height = 2.25, units = "in", noRStudioGD = TRUE)
 fig_smith2010 <- 
 	fitness_smith2010 |>
 	plot_mix_fitness(
-		# strain_names = c(A = "GVB206.3", B = "GJV10"), 
 		strain_names = c(A = "evolved", B = "ancestral"), 
 		mix_var = "initial_ratio_A"
 	)
 plot(fig_smith2010)
-ggsave(
-	"mix_fitness_smith2010.pdf", 
-	plot = fig_smith2010, 
-	width = 6.25, 
-	height = 2.25, 
-	units = "in"
-)
 
 
 # DATASET 2: TOTAL ABUNDANCE + STRAIN FREQUENCY ================================
 
 # Load data (antibiotic-resistant and sensitive E. coli)
 data_Yurtsev2013 <-
-	read.table("data_Yurtsev2013.tsv", header = TRUE, sep = "\t") |>
+	read.csv("data_Yurtsev2013.csv", comment.char = "#") |>
 	tibble()
 
-# Measured values are total cell density (OD_600) and strain frequency
-data_Yurtsev2013 |> select(starts_with("initial"), starts_with("final"))
+data_Yurtsev2013
+# Measured values are total cell density (OD600) and strain frequency
+# Experimental treatments are ampicillin and dilution
 
-# Calculate fitness with mixexptr
+# Drop rows with negative strain frequencies (artifact from flow cytometry)
+data_Yurtsev2013 <- data_Yurtsev2013 |>
+	filter(fraction_resistant_initial > 0 & fraction_resistant_final > 0)
+
+# mixexptr::calculate_mix_fitness() also works with total/fraction data
+calculate_mix_fitness(
+	data = data_Yurtsev2013, 
+	strain_names = c(A = "resistant", B = "sensitive"), 
+	var_names = c(
+		initial_count_total = "OD_initial",
+		initial_proportion_A = "fraction_resistant_initial",
+		final_count_total = "OD_final",
+		final_proportion_A = "fraction_resistant_final"
+	)
+) |>
+select(
+	ampicillin, dilution, 
+	initial_proportion_A, initial_ratio_A, 
+	starts_with("fitness")
+)
+
+# Or you could calculate fitness effects "by hand"
 fitness_Yurtsev2013 <- 
-	calculate_mix_fitness(
-		data = data_Yurtsev2013, 
-		strain_names = c(A = "resistant", B = "sensitive"), 
-		var_names = c(
-			initial_count_total = "initial_number_total",
-			initial_proportion_A = "initial_proportion_A",
-			final_count_total = "final_number_total",
-			final_proportion_A = "final_proportion_A"
-		)
-	) |>
-	select(
-		antibiotic, dilution, 
-		initial_proportion_A, initial_ratio_A, 
-		starts_with("fitness")
+	data_Yurtsev2013 |>
+	mutate(
+		fitness_total = OD_final / OD_initial, 
+		fitness_AmpR = 
+			(OD_final * fraction_resistant_final) / 
+			(OD_initial * fraction_resistant_initial), 
+		fitness_AmpS = 
+			(OD_final * (1-fraction_resistant_final)) / 
+			(OD_initial * (1-fraction_resistant_initial)), 
+		fitness_ratio_AmpR_AmpS = 
+			(fraction_resistant_final / (1-fraction_resistant_final)) /
+			(fraction_resistant_initial / (1-fraction_resistant_initial))
 	)
 
-# Plot fitness effects
-dev.new(width = 6.25, height = 2.25, units = "in", noRStudioGD = TRUE)
+# Treatment levels
+# sort(unique(data_Yurtsev2013$ampicillin))
+# sort(unique(data_Yurtsev2013$dilution))
+
+# Plot fitness effects for 100 ug/mL ampicillin, 100-fold dilution
 fig_Yurtsev2013 <- 
 	fitness_Yurtsev2013 |>
+	filter(ampicillin == 100 & dilution == 100) |>
+	# filter(ampicillin == 100 & dilution == 200) |>
 	plot_mix_fitness(
 		strain_names = c(A = "resistant", B = "sensitive")
 	)
+dev.new(width = 6.25, height = 2.25, units = "in", noRStudioGD = TRUE)
 plot(fig_Yurtsev2013)
-	# - Total-group fitness not affected by mix frequency
-	# - Within-group fitness is strongly frequency-dependent below some 
-	#   threshold value
+# Total-group fitness not affected by mix frequency
+# Within-group fitness is strongly frequency-dependent below some threshold
+
+# Compare to treatment with different ... 
+
 

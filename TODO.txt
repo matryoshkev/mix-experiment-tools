@@ -2,28 +2,13 @@
 
 # EXAMPLE ANALYSES =============================================================
 
-+ Myxo: Calculate cfu from colony counts & dilution
-- Show how to calculate fitness measures "by hand"
-- For more info see: smith j & Inglis RF (2025) Best practices ...
++ Calculate fitness "by hand", then into `plot_mix_fitness()`
 
 Approach  
 - Model best practices described in paper
 - Use this file to figure out clearest/easiest syntax to design for
 - Only brief comments: let code be foreground
 - Comments about what the data show (e.g. x-proportion vs x-logratio)
-
-Use cases  
-- Quick diagnostic tool to visualize data (preliminary analysis)
-- Starting materials for new lab member
-- Supplemental figure in paper
-
-Be sure to include  
-- Dataset with number A + number B
-- Dataset with total + proportion
-- `report_mix_fitness()` = quick diagnostic plots
-- `calculate_mix_fitness()` 
-- Calculate fitness "by hand", then into `plot_mix_fitness()`
-- Both x-scales: proportion, log-ratio
 
 Open questions  
 - Flesh out description? 
@@ -32,27 +17,16 @@ Open questions
 
 # DATA =========================================================================
 
-+ Spreadsheet template: Needs improvement for better practice
-- No good + standard method for metadata. csv often decribed as widespread but 
-  poor format. # Comments appear best
-
-smith 2010  
-+ csv not tsv
-+ Formatted well but not same var_names as script
-+ Just colony counts and dilution
+smith 2010
 - Double-check 2nd measurements are correct (not kan + no-antibiotic)
 
 Yurtsev 2013
-- Reformat: simplify, follow original more closely
-- csv not tsv
-- Re-use author language in metadata
-- replicate, culture_id, ampicillin, dilution
-- OD_initial, OD_final, fraction_gfp_initial, fraction_gfp_final
++ Reformat: simplify, follow original more closely
++ csv not tsv
++ Re-use author language in metadata
 
 
 # OTHER FILES ==================================================================
-
-- Flesh out README.md
 
 
 # MIXEXPTR =====================================================================
@@ -76,7 +50,7 @@ Testing
 - Test with provided `var_names`
 - Test with default `var_names`
 
-### Features
+Features
 - Limits: Shared fitness scale
 - Breaks: Linear/log
 - Breaks: Not too many
@@ -85,13 +59,13 @@ Testing
 - x limits: initial ratio should include 1
 - y limits: shared scale, always include 1
 
-### Soon
+Soon
 - `match.arg()`
 - Skeleton R package
 - GitHub repository
 - Minimal viable product
 
-### Later
+Later
 - Plot fitness measures separately
   . `plot_strain_fitness()`
   . `plot_multilevel_fitness()`
