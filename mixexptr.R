@@ -231,7 +231,8 @@ plot_mix_fitness <- function(
 		initial_ratio_A = "initial_ratio_A", 
 		fitness_A = "fitness_A", 
 		fitness_B = "fitness_B", 
-		fitness_total = "fitness_total"
+		fitness_total = "fitness_total", 
+		fitness_ratio_A = "fitness_ratio_A"
 	), 
 	mix_var = "initial_proportion_A", 
 	suppress_window = TRUE

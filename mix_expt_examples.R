@@ -94,41 +94,43 @@ data_Yurtsev2013 <- data_Yurtsev2013 |>
 	filter(fraction_resistant_initial > 0 & fraction_resistant_final > 0)
 
 # mixexptr::calculate_mix_fitness() also works with total/fraction data
-calculate_mix_fitness(
-	data = data_Yurtsev2013, 
-	strain_names = c(A = "resistant", B = "sensitive"), 
-	var_names = c(
-		initial_count_total = "OD_initial",
-		initial_proportion_A = "fraction_resistant_initial",
-		final_count_total = "OD_final",
-		final_proportion_A = "fraction_resistant_final"
+fitness_Yurtsev2013 <-
+	calculate_mix_fitness(
+		data = data_Yurtsev2013, 
+		strain_names = c(A = "resistant", B = "sensitive"), 
+		var_names = c(
+			initial_count_total = "OD_initial",
+			initial_proportion_A = "fraction_resistant_initial",
+			final_count_total = "OD_final",
+			final_proportion_A = "fraction_resistant_final"
+		)
+	) |>
+	select(
+		ampicillin, dilution, 
+		initial_proportion_A, initial_ratio_A, 
+		starts_with("fitness")
 	)
-) |>
-select(
-	ampicillin, dilution, 
-	initial_proportion_A, initial_ratio_A, 
-	starts_with("fitness")
-)
 
 # Or you could calculate fitness effects "by hand"
-fitness_Yurtsev2013 <- 
-	data_Yurtsev2013 |>
-	mutate(
-		fitness_total = OD_final / OD_initial, 
-		fitness_AmpR = 
-			(OD_final * fraction_resistant_final) / 
-			(OD_initial * fraction_resistant_initial), 
-		fitness_AmpS = 
-			(OD_final * (1-fraction_resistant_final)) / 
-			(OD_initial * (1-fraction_resistant_initial)), 
-		fitness_ratio_AmpR_AmpS = 
-			(fraction_resistant_final / (1-fraction_resistant_final)) /
-			(fraction_resistant_initial / (1-fraction_resistant_initial))
-	)
+# fitness_Yurtsev2013 <- 
+	# data_Yurtsev2013 |>
+	# mutate(
+		# fitness_total = OD_final / OD_initial, 
+		# fitness_AmpR = 
+			# (OD_final * fraction_resistant_final) / 
+			# (OD_initial * fraction_resistant_initial), 
+		# fitness_AmpS = 
+			# (OD_final * (1-fraction_resistant_final)) / 
+			# (OD_initial * (1-fraction_resistant_initial)), 
+		# fitness_ratio_AmpR_AmpS = 
+			# (fraction_resistant_final / (1-fraction_resistant_final)) /
+			# (fraction_resistant_initial / (1-fraction_resistant_initial)), 
+		# initial_ratio_resistant = 
+			# fraction_resistant_initial / (1-fraction_resistant_initial)
+	# )
 
-# Treatment levels
-# sort(unique(data_Yurtsev2013$ampicillin))
-# sort(unique(data_Yurtsev2013$dilution))
+# # Treatment combinations
+# data_Yurtsev2013 |> select(ampicillin, dilution) |> distinct() |> print(n = Inf)
 
 # Plot fitness effects for 100 ug/mL ampicillin, 100-fold dilution
 fig_Yurtsev2013 <- 
@@ -136,7 +138,15 @@ fig_Yurtsev2013 <-
 	filter(ampicillin == 100 & dilution == 100) |>
 	# filter(ampicillin == 100 & dilution == 200) |>
 	plot_mix_fitness(
-		strain_names = c(A = "resistant", B = "sensitive")
+		strain_names = c(A = "resistant", B = "sensitive"), 
+		# var_names = c(
+			# initial_proportion_A = "fraction_resistant_initial", 
+			# initial_ratio_A = "initial_ratio_resistant", 
+			# fitness_A = "fitness_AmpR", 
+			# fitness_B = "fitness_AmpS", 
+			# fitness_total = "fitness_total", 
+			# fitness_ratio_A = "fitness_ratio_AmpR_AmpS"
+		# )
 	)
 dev.new(width = 6.25, height = 2.25, units = "in", noRStudioGD = TRUE)
 plot(fig_Yurtsev2013)

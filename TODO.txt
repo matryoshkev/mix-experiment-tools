@@ -2,7 +2,8 @@
 
 # EXAMPLE ANALYSES =============================================================
 
-+ Calculate fitness "by hand", then into `plot_mix_fitness()`
+To do
++ Calculate fitness "by hand"
 
 Approach  
 - Model best practices described in paper
@@ -32,10 +33,11 @@ Yurtsev 2013
 # MIXEXPTR =====================================================================
 
 Priority  
+- Custom fitness names for plot_mix_fitness()
 - Fix deprecated `theme(legend.position)` -> legend.position.inside
 - `combine_figures(fig1, fig2, widths)`
 - `initial_number` not `initial_count` (better for density, OD600)
-- Plot dimensions should be set by `plot_mix_fitness`
+- Plot dimensions should be set by `plot_mix_fitness` ?
   (but continued issues with `dev.new()` inside a function...)
 
 Open questions  
